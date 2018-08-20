@@ -1,0 +1,23 @@
+{
+    "name": "spendmail/movavi",
+    "description": "Movavi testing task",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sizikov Konstantin",
+            "email": "spendlively@mail.ru"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Movavi\\": "src/",
+            "MovaviTest\\": "tests/"
+        }
+    }
+}
