@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: spendlively
- * Date: 20.08.18
- * Time: 12:59
- */
 
 namespace Movavi\Factory;
 
 use Movavi\Builder\CbrRateBuilder;
 use Movavi\Builder\RbcRateBuilder;
 use Movavi\Exception\UnknownServiceException;
+use Movavi\Http\Client;
 use Movavi\Service\CbrService;
 use Movavi\Service\RbcService;
 
@@ -23,12 +18,13 @@ use Movavi\Service\RbcService;
  */
 class CurrencyServiceFactory
 {
-
     /**
      * Returns an instance of suitable service
      *
      * @param $name
-     * @return Service\CbrService|Service\RbcService
+     *
+     * @return CbrService|RbcService
+     *
      * @throws UnknownServiceException
      */
     public function createService($name)
@@ -37,10 +33,10 @@ class CurrencyServiceFactory
         switch (mb_strtoupper($name)) {
 
             case CbrService::NAME:
-                return new CbrService(new CbrRateBuilder());
+                return new CbrService(new Client(), new CbrRateBuilder());
 
             case RbcService::NAME:
-                return new RbcService(new RbcRateBuilder());
+                return new RbcService(new Client(), new RbcRateBuilder());
 
             default:
                 throw new UnknownServiceException();

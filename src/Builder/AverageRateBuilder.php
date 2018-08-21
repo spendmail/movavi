@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: spendlively
- * Date: 21.08.18
- * Time: 14:24
- */
 
 namespace Movavi\Builder;
 
 use Movavi\Entity\Rate;
 use Movavi\Exception\EmptyRateListException;
-use Movavi\Exception\NoneRateException;
+use Movavi\Exception\WrongClassException;
 
 /**
  * Class AverageRateBuilder
@@ -27,8 +21,11 @@ class AverageRateBuilder
      * that contains average rate from given array
      *
      * @param array $rates
+     *
      * @return Rate
+     *
      * @throws EmptyRateListException
+     * @throws WrongClassException
      */
     public function fromArray(array $rates)
     {

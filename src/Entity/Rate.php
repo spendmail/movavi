@@ -1,14 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: spendlively
- * Date: 20.08.18
- * Time: 12:54
- */
 
 namespace Movavi\Entity;
-
-use Movavi\Entity\Currency\CurrencyInterface;
 
 /**
  * Class Rate

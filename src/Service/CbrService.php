@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: spendlively
- * Date: 20.08.18
- * Time: 12:51
- */
 
 namespace Movavi\Service;
 
 use Movavi\Builder\CbrRateBuilder;
 use Movavi\Entity\Rate;
 use Movavi\Entity\Currency;
+use Movavi\Http\ClientInterface;
 
 /**
  * Class CbrService
@@ -54,12 +49,21 @@ class CbrService extends AbstractService implements CurrencyServiceInterface
     public $builder = null;
 
     /**
+     * Http Client
+     *
+     * @var ClientInterface|null
+     */
+    public $client = null;
+
+    /**
      * CbrService constructor.
      *
+     * @param ClientInterface $client
      * @param CbrRateBuilder $builder
      */
-    public function __construct(CbrRateBuilder $builder)
+    public function __construct(ClientInterface $client, CbrRateBuilder $builder)
     {
+        $this->client = $client;
         $this->builder = $builder;
     }
 
@@ -94,7 +98,6 @@ class CbrService extends AbstractService implements CurrencyServiceInterface
      * @return Rate
      *
      * @throws \Movavi\Exception\NoneRateException
-     * @throws \Movavi\Exception\UnavailableServiceException
      */
     public function getUsdToRubRate(\DateTime $date): Rate
     {
@@ -113,7 +116,6 @@ class CbrService extends AbstractService implements CurrencyServiceInterface
      * @return Rate
      *
      * @throws \Movavi\Exception\NoneRateException
-     * @throws \Movavi\Exception\UnavailableServiceException
      */
     public function getEurToRubRate(\DateTime $date): Rate
     {

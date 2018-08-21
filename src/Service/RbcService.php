@@ -1,19 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: spendlively
- * Date: 20.08.18
- * Time: 12:51
- */
 
 namespace Movavi\Service;
 
 use Movavi\Builder\RbcRateBuilder;
 use Movavi\Entity\Currency;
 use Movavi\Entity\Rate;
-use Movavi\Entity\Currency\Usd;
-use Movavi\Entity\Currency\Eur;
-use Movavi\Entity\Currency\Rub;
+use Movavi\Http\ClientInterface;
 
 /**
  * Class RbcService
@@ -62,12 +54,21 @@ class RbcService extends AbstractService implements CurrencyServiceInterface
     protected $builder = null;
 
     /**
+     * Http Client
+     *
+     * @var ClientInterface|null
+     */
+    public $client = null;
+
+    /**
      * RbcService constructor.
      *
+     * @param ClientInterface $client
      * @param RbcRateBuilder $builder
      */
-    public function __construct(RbcRateBuilder $builder)
+    public function __construct(ClientInterface $client, RbcRateBuilder $builder)
     {
+        $this->client = $client;
         $this->builder = $builder;
     }
 
@@ -90,10 +91,8 @@ class RbcService extends AbstractService implements CurrencyServiceInterface
      * Implements CurrencyServiceInterface::getUsdToRubRate
      *
      * @param \DateTime $date
-     *
      * @return Rate
-     *
-     * @throws \Movavi\Exception\UnavailableServiceException
+     * @throws \Movavi\Exception\NoneRateException
      */
     public function getUsdToRubRate(\DateTime $date): Rate
     {
@@ -108,10 +107,8 @@ class RbcService extends AbstractService implements CurrencyServiceInterface
      * Implements CurrencyServiceInterface::getUsdToRubRate
      *
      * @param \DateTime $date
-     *
      * @return Rate
-     *
-     * @throws \Movavi\Exception\UnavailableServiceException
+     * @throws \Movavi\Exception\NoneRateException
      */
     public function getEurToRubRate(\DateTime $date): Rate
     {

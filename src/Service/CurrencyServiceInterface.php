@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: spendlively
- * Date: 20.08.18
- * Time: 12:50
- */
 
 namespace Movavi\Service;
 

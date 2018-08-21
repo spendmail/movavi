@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: spendlively
- * Date: 21.08.18
- * Time: 14:24
- */
 
 namespace Movavi\Builder;
 
 use Movavi\Entity\Rate;
+use Movavi\Exception\NoneRateException;
 
 /**
  * Class RbcRateBuilder
@@ -30,6 +25,8 @@ class RbcRateBuilder
      * @param $jsonString
      *
      * @return Rate
+     *
+     * @throws NoneRateException
      */
     public function fromJson($currencyFrom, $currencyTo, \DateTime $date, $jsonString)
     {

@@ -1,0 +1,12 @@
+<phpunit>
+    <testsuites>
+        <testsuite name="Movavi test suite">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">tests/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
