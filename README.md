@@ -1,10 +1,18 @@
-# movavi
+# Movavi test library
 
-Testing library for getting currency rates.
+### Задание
+Есть 2 сервиса, возвращающие курсы валют:
+ + https://www.cbr.ru/development/SXML/
+ + https://cash.rbc.ru/cash/json/converter_currency_rate/?currency_from=USD&currency_to=RUR&source=cbrf&sum=1&date=
 
-1. Data providers:
- + cbr.ru
- + cash.rbc.ru
+Необходимо написать библиотеку, которая будет вычислять средний курс евро и доллара по этим двум сервисам на передаваемую дату. 
 
-2. Testing application
+При недоступности одного из сервисов должно генерироваться исключение. 
+
+Код должен быть максимально покрыт тестами.
+
+### Установка
+composer require spendmail/movavi dev-master
+
+### Тестовое приложение
 https://github.com/spendmail/movavi_usage
