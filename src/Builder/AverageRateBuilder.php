@@ -33,23 +33,24 @@ class AverageRateBuilder
             throw new EmptyRateListException();
         }
 
-        $ratesSum = 0;
-
-        foreach ($rates as $rate){
+        $ratesSum = array_reduce($rates, function($carry, $rate){
 
             if(!$rate instanceof Rate){
                 throw new WrongClassException();
             }
 
-            $ratesSum += $rate->rate;
-        }
+            $carry += $rate->getRate();
+
+            return $carry;
+        });
 
         $averageRate = $ratesSum/count($rates);
+        $firstRate = array_shift($rates);
 
         return new Rate(
-            $rate->getCurrencyFrom(),
-            $rate->getCurrencyTo(),
-            $rate->getDate(),
+            $firstRate->getCurrencyFrom(),
+            $firstRate->getCurrencyTo(),
+            $firstRate->getDate(),
             $averageRate
         );
     }
