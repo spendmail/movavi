@@ -11,5 +11,5 @@ namespace Movavi\Exception;
  */
 class EmptyRateListException extends \Exception
 {
-
+    public $message = 'Rates array is empty';
 }
