@@ -52,7 +52,7 @@ class Rate
         $this->currencyFrom = $currencyFrom;
         $this->currencyTo = $currencyTo;
         $this->date = $date;
-        $this->rate = (float) $rate;
+        $this->rate = (float)$rate;
     }
 
     /**

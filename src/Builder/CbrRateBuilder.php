@@ -32,13 +32,13 @@ class CbrRateBuilder
     {
         $xml = simplexml_load_string($xmlString);
         $json = json_encode($xml);
-        $array = json_decode($json,TRUE);
+        $array = json_decode($json, TRUE);
 
-        if(empty($array['Record'])){
+        if (empty($array['Record'])) {
             throw new NoneRateException('Service cbr.ru has not send any rate data');
         }
 
-        if(isset($array['Record']['Value'])){
+        if (isset($array['Record']['Value'])) {
 
             $rate = $array['Record']['Value'];
         } else {

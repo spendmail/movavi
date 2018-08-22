@@ -29,7 +29,6 @@ class CurrencyServiceFactory
      */
     public function createService($name)
     {
-
         switch (mb_strtoupper($name)) {
 
             case CbrService::NAME:

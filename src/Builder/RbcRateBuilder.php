@@ -32,7 +32,7 @@ class RbcRateBuilder
     {
         $dataObj = json_decode($jsonString);
 
-        if(empty($dataObj->data->sum_result)){
+        if (empty($dataObj->data->sum_result)) {
             throw new NoneRateException('Service cash.rbc.ru has not send any rate data');
         }
 

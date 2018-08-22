@@ -24,7 +24,7 @@ class Client implements ClientInterface
      */
     public function httpRequest($url): string
     {
-        if(!$content = file_get_contents($url)){
+        if (!$content = file_get_contents($url)) {
             throw new UnavailableServiceException();
         }
 

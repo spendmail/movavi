@@ -12,5 +12,4 @@ namespace Movavi\Exception;
 class UnknownDateFormat extends \Exception
 {
     public $message = 'Date must be an instance of DateTime';
-
 }

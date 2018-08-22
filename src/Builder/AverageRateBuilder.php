@@ -29,13 +29,13 @@ class AverageRateBuilder
      */
     public function fromArray(array $rates)
     {
-        if(empty($rates)){
+        if (empty($rates)) {
             throw new EmptyRateListException();
         }
 
-        $ratesSum = array_reduce($rates, function($carry, $rate){
+        $ratesSum = array_reduce($rates, function ($carry, $rate) {
 
-            if(!$rate instanceof Rate){
+            if (!$rate instanceof Rate) {
                 throw new WrongClassException();
             }
 
@@ -44,7 +44,7 @@ class AverageRateBuilder
             return $carry;
         });
 
-        $averageRate = $ratesSum/count($rates);
+        $averageRate = $ratesSum / count($rates);
         $firstRate = array_shift($rates);
 
         return new Rate(

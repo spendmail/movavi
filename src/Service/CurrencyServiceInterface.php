@@ -16,5 +16,4 @@ interface CurrencyServiceInterface
     public function getUsdToRubRate(\DateTime $date): Rate;
 
     public function getEurToRubRate(\DateTime $date): Rate;
-
 }
