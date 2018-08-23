@@ -14,7 +14,7 @@ use Movavi\Http\ClientInterface;
  *
  * @package Movavi\Service
  */
-class CbrService extends AbstractService implements CurrencyServiceInterface
+class CbrService implements CurrencyServiceInterface
 {
     /**
      * Service name
@@ -68,6 +68,18 @@ class CbrService extends AbstractService implements CurrencyServiceInterface
     }
 
     /**
+     * Returns an HTTP-response by URL given
+     *
+     * @param $url
+     *
+     * @return mixed
+     */
+    public function sendHttpRequest(string $url): string
+    {
+        return $this->client->sendHttpRequest($url);
+    }
+
+    /**
      * Returns prepared URL-address
      *
      * @param $currencyFrom
@@ -75,7 +87,7 @@ class CbrService extends AbstractService implements CurrencyServiceInterface
      *
      * @return string
      */
-    protected function getUrl($currencyFrom, \DateTime $date)
+    protected function getUrl(string $currencyFrom, \DateTime $date): string
     {
 
         $strDateTo = $date->format(static::URL_DATE_FORMAT);
@@ -102,7 +114,7 @@ class CbrService extends AbstractService implements CurrencyServiceInterface
     public function getUsdToRubRate(\DateTime $date): Rate
     {
         $url = $this->getUrl(static::URL_USD, $date);
-        $content = $this->httpRequest($url);
+        $content = $this->sendHttpRequest($url);
 
         return $this->builder->fromXml(Currency::USD, Currency::RUB, $date, $content);
     }
@@ -120,7 +132,7 @@ class CbrService extends AbstractService implements CurrencyServiceInterface
     public function getEurToRubRate(\DateTime $date): Rate
     {
         $url = $this->getUrl(static::URL_EUR, $date);
-        $content = $this->httpRequest($url);
+        $content = $this->sendHttpRequest($url);
 
         return $this->builder->fromXml(Currency::USD, Currency::RUB, $date, $content);
     }

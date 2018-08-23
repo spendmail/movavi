@@ -9,5 +9,5 @@ namespace Movavi\Http;
  */
 interface ClientInterface
 {
-    public function httpRequest($url): string;
+    public function sendHttpRequest(string $url): string;
 }

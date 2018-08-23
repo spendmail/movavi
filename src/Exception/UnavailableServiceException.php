@@ -9,7 +9,7 @@ namespace Movavi\Exception;
  *
  * @package Movavi\Exception
  */
-class UnavailableServiceException extends \Exception
+class UnavailableServiceException extends MovaviException
 {
     public $message = 'Service is temporary unavailable';
 }

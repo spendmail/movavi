@@ -7,6 +7,7 @@ use Movavi\Builder\RbcRateBuilder;
 use Movavi\Exception\UnknownServiceException;
 use Movavi\Http\Client;
 use Movavi\Service\CbrService;
+use Movavi\Service\CurrencyServiceInterface;
 use Movavi\Service\RbcService;
 
 /**
@@ -21,13 +22,14 @@ class CurrencyServiceFactory
     /**
      * Returns an instance of suitable service
      *
-     * @param $name
+     * @param string $name
      *
-     * @return CbrService|RbcService
+     * @return CurrencyServiceInterface
      *
      * @throws UnknownServiceException
+     * @throws \Movavi\Exception\DisallowedUrlException
      */
-    public function createService($name)
+    public function createService(string $name): CurrencyServiceInterface
     {
         switch (mb_strtoupper($name)) {
 

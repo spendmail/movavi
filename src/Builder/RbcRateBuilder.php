@@ -19,16 +19,16 @@ class RbcRateBuilder
      * Returns an instance of Movavi\Entity\Rate,
      * by string in json-format from cash.rbc.ru
      *
-     * @param $currencyFrom
-     * @param $currencyTo
+     * @param string $currencyFrom
+     * @param string $currencyTo
      * @param \DateTime $date
-     * @param $jsonString
+     * @param string $jsonString
      *
      * @return Rate
      *
      * @throws NoneRateException
      */
-    public function fromJson($currencyFrom, $currencyTo, \DateTime $date, $jsonString)
+    public function fromJson(string $currencyFrom, string $currencyTo, \DateTime $date, string $jsonString): Rate
     {
         $dataObj = json_decode($jsonString);
 

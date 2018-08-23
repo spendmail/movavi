@@ -15,20 +15,21 @@ use Movavi\Exception\NoneRateException;
  */
 class CbrRateBuilder
 {
+
     /**
      * Returns an instance of Movavi\Entity\Rate,
      * by string in xml-format from cbr.ru
      *
-     * @param $currencyFrom
-     * @param $currencyTo
+     * @param string $currencyFrom
+     * @param string $currencyTo
      * @param \DateTime $date
-     * @param $xmlString
+     * @param string $xmlString
      *
      * @return Rate
      *
      * @throws NoneRateException
      */
-    public function fromXml($currencyFrom, $currencyTo, \DateTime $date, $xmlString)
+    public function fromXml(string $currencyFrom, string $currencyTo, \DateTime $date, string $xmlString): Rate
     {
         $xml = simplexml_load_string($xmlString);
         $json = json_encode($xml);

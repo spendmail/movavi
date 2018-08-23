@@ -9,7 +9,7 @@ namespace Movavi\Exception;
  *
  * @package Movavi\Exception
  */
-class UnknownServiceException extends \Exception
+class UnknownServiceException extends MovaviException
 {
     public $message = 'Unknown service name';
 }

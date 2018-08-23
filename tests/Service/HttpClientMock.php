@@ -12,7 +12,7 @@ use Movavi\Http\ClientInterface;
 
 class HttpClientMock implements ClientInterface
 {
-    public function httpRequest($url): string
+    public function sendHttpRequest(string $url): string
     {
         if (preg_match("@cbr.ru@ui", $url)) {
             return '

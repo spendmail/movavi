@@ -42,17 +42,17 @@ class Rate
     /**
      * Rate constructor.
      *
-     * @param $currencyFrom
-     * @param $currencyTo
+     * @param string $currencyFrom
+     * @param string $currencyTo
      * @param \DateTime $date
-     * @param $rate
+     * @param float $rate
      */
-    public function __construct($currencyFrom, $currencyTo, \DateTime $date, $rate)
+    public function __construct(string $currencyFrom, string $currencyTo, \DateTime $date, float $rate)
     {
         $this->currencyFrom = $currencyFrom;
         $this->currencyTo = $currencyTo;
         $this->date = $date;
-        $this->rate = (float)$rate;
+        $this->rate = $rate;
     }
 
     /**
@@ -60,7 +60,7 @@ class Rate
      *
      * @return string
      */
-    public function getCurrencyFrom()
+    public function getCurrencyFrom(): string
     {
         return $this->currencyFrom;
     }
@@ -70,7 +70,7 @@ class Rate
      *
      * @return string
      */
-    public function getCurrencyTo()
+    public function getCurrencyTo(): string
     {
         return $this->currencyTo;
     }
@@ -80,7 +80,7 @@ class Rate
      *
      * @return float
      */
-    public function getRate()
+    public function getRate(): float
     {
         return $this->rate;
     }
@@ -90,7 +90,7 @@ class Rate
      *
      * @return \DateTime
      */
-    public function getDate()
+    public function getDate(): \DateTime
     {
         return $this->date;
     }
@@ -100,7 +100,7 @@ class Rate
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return sprintf(
             "%s to %s rate is %s on %s.",

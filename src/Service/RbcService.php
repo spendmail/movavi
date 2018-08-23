@@ -14,7 +14,7 @@ use Movavi\Http\ClientInterface;
  *
  * @package Movavi\Service
  */
-class RbcService extends AbstractService implements CurrencyServiceInterface
+class RbcService implements CurrencyServiceInterface
 {
     /**
      * Service name
@@ -73,6 +73,18 @@ class RbcService extends AbstractService implements CurrencyServiceInterface
     }
 
     /**
+     * Returns an HTTP-response by URL given
+     *
+     * @param $url
+     *
+     * @return mixed
+     */
+    public function sendHttpRequest(string $url): string
+    {
+        return $this->client->sendHttpRequest($url);
+    }
+
+    /**
      * Returns prepared URL-address
      *
      * @param $currencyFrom
@@ -81,7 +93,7 @@ class RbcService extends AbstractService implements CurrencyServiceInterface
      *
      * @return string
      */
-    protected function getUrl($currencyFrom, $currencyTo, \DateTime $date)
+    protected function getUrl(string $currencyFrom, string $currencyTo, \DateTime $date): string
     {
         return sprintf(static::URL, $currencyFrom, $currencyTo, $date->format(static::URL_DATE_FORMAT));
     }
@@ -97,7 +109,7 @@ class RbcService extends AbstractService implements CurrencyServiceInterface
     public function getUsdToRubRate(\DateTime $date): Rate
     {
 
-        $content = $this->httpRequest($this->getUrl(static::URL_USD, static::URL_RUB, $date));
+        $content = $this->sendHttpRequest($this->getUrl(static::URL_USD, static::URL_RUB, $date));
 
         return $this->builder->fromJson(Currency::USD, Currency::RUB, $date, $content);
     }
@@ -112,7 +124,7 @@ class RbcService extends AbstractService implements CurrencyServiceInterface
      */
     public function getEurToRubRate(\DateTime $date): Rate
     {
-        $content = $this->httpRequest($this->getUrl(static::URL_EUR, static::URL_RUB, $date));
+        $content = $this->sendHttpRequest($this->getUrl(static::URL_EUR, static::URL_RUB, $date));
 
         return $this->builder->fromJson(Currency::EUR, Currency::RUB, $date, $content);
     }

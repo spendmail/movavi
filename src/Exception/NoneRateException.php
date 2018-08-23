@@ -9,7 +9,7 @@ namespace Movavi\Exception;
  *
  * @package Movavi\Exception
  */
-class NoneRateException extends \Exception
+class NoneRateException extends MovaviException
 {
     public $message = 'Service has not send any rate data';
 }

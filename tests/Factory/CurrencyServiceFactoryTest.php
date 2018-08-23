@@ -31,6 +31,6 @@ class CurrencyServiceFactoryTest extends TestCase
     public function testShould_ThrowUnknownServiceException()
     {
         $currencyServiceFactory = new CurrencyServiceFactory();
-        $currencyServiceFactory->createService('Heil Hitler!');
+        $currencyServiceFactory->createService('UnknownServiceName!');
     }
 }

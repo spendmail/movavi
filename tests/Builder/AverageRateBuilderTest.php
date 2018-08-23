@@ -18,15 +18,6 @@ class AverageRateBuilderTest extends TestCase
         $averageRateBuilder->fromArray([]);
     }
 
-    /**
-     * @expectedException \Movavi\Exception\WrongClassException
-     */
-    public function testShould_ThrowWrongClassException_When_RatesArrayHasWrongClassObject()
-    {
-        $averageRateBuilder = new AverageRateBuilder();
-        $averageRateBuilder->fromArray([new \Stdclass()]);
-    }
-
     public function testShould_ReturnAverageRate()
     {
         $rate1 = new Rate(Currency::USD, Currency::RUB, new \DateTime(), 100);
