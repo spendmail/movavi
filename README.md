@@ -16,3 +16,7 @@ composer require spendmail/movavi dev-master
 
 ### Тестовое приложение
 https://github.com/spendmail/movavi_usage
+
+[![Latest Stable Version](https://img.shields.io/packagist/v/spendmail/movavi.svg)](https://packagist.org/packages/spendmail/movavi)
+[![Total Downloads](https://img.shields.io/packagist/dt/spendmail/movavi.svg)](https://packagist.org/packages/spendmail/movavi)
+[![Build Status](https://img.shields.io/travis/spendmail/movavi.svg)](https://travis-ci.org/spendmail/movavi)
