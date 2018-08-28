@@ -4,7 +4,7 @@
 [![License](https://poser.pugx.org/spendmail/movavi/license)](https://packagist.org/packages/spendmail/movavi)
 [![composer.lock](https://poser.pugx.org/spendmail/movavi/composerlock)](https://packagist.org/packages/spendmail/movavi)
 [![Build Status](https://img.shields.io/travis/spendmail/movavi.svg)](https://travis-ci.org/spendmail/movavi)
-
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/spendmail/movavi/badges/quality-score.png?s=17448ca4d140429fd687c58ff747baeb6568d528)](https://scrutinizer-ci.com/g/spendmail/movavi/)
 
 # Movavi test library
 
